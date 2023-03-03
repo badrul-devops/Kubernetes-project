@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: badrul-app
+  labels:
+    app: badrul-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: badrul-app
+  strategy:
+     type: RollingUpdate
+     rollingupdate:
+       maxSuger: 1
+       maxUnavariable: 1
+  template:
+    metadata:
+      labels:
+        app: badrul-app
+    spec:
+      containers:
+      - name: badrul-app
+        image: badrul11/app
+        imagePullingPolicy: Always
+        ports:
+        - containerPort: 80
+~

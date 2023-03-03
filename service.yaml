@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: badrul-app
+  labels:
+    app: badrul-app
+spec:
+  selector:
+    app: badrul-app
+  type: LoadBalance
+  ports:
+    - protocol: TCP
+      targetPort: 80
+      port: 8080
+      nodePort: 31200
+
